@@ -1,0 +1,158 @@
+﻿<Window x:Class="WpfApp1.Panels.LokalWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:val="clr-namespace:WpfApp1.Validation"
+        mc:Ignorable="d"
+        Title="Lokal" Height="450" Width="800">
+    <Grid Margin="25,25,25,25">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="107" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0">Jedinstvena oznaka:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">Opis:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="5">Sluzenje alkohola:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6">Ikonica:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="7">Dostupan za hendikepe:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="8">Dozvoljeno pusenje:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="9">Rezervacije:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="10">Kategorija cena:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="11">Kapacitet:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="12">Datum otvaranja:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="13">Tip Lokala:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="14">Etiketa:</TextBlock>
+
+        <TextBox Grid.Column="1" Grid.Row="0"  Margin="0,0,220,0">
+            <TextBox.Text>
+                <Binding Path="Id" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:NoSpecialCharacters ValidationStep="RawProposedValue"></val:NoSpecialCharacters>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,0,220,0">
+            <TextBox.Text>
+                <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:StringValidationRule ValidationStep="RawProposedValue"></val:StringValidationRule>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <TextBox Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="0,0,220,0">
+            <TextBox.Text>
+                <Binding Path="Opis" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:NoSpecialCharacters ValidationStep="RawProposedValue"></val:NoSpecialCharacters>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <ComboBox Grid.Column="1" Grid.Row="5" Text="{Binding Path=SluzenjeAlkohola,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,550,0">
+            <ComboBoxItem Content="ne sluzi"></ComboBoxItem>
+            <ComboBoxItem Content="sluzi do 23"></ComboBoxItem>
+            <ComboBoxItem Content="sluzi do kasno nocu"></ComboBoxItem>
+        </ComboBox>
+        <Button Content="Dodaj Ikonicu" Grid.Column="1" Grid.Row="6" Margin="0,0,502,0"></Button>
+        <CheckBox Grid.Column="1" Grid.Row="7"></CheckBox>
+        <CheckBox Grid.Column="1" Grid.Row="8"></CheckBox>
+        <CheckBox Grid.Column="1" Grid.Row="9"></CheckBox>
+        <ComboBox Grid.Column="1" Grid.Row="10" Text="{Binding Path=KategorijaCena,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,550,0">
+            <ComboBoxItem Content="Niske"></ComboBoxItem>
+            <ComboBoxItem Content="Srednje"></ComboBoxItem>
+            <ComboBoxItem Content="Visoke"></ComboBoxItem>
+            <ComboBoxItem Content="Izuzetno visoke"></ComboBoxItem>
+        </ComboBox>
+        <TextBox Grid.Column="1" Grid.Row="11" Margin="0,0,220,0" Text="{Binding Path=Kapacitet,UpdateSourceTrigger=PropertyChanged}">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0"/>
+                        <TextBlock Grid.Column="1" Grid.Row="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <DatePicker Grid.Column="1" Grid.Row="12" Text="{Binding Path=DatumOtvaranja,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,502,0" ></DatePicker>
+        <ComboBox Grid.Column="1" Grid.Row="13" Text="{Binding Path=LokalTip,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,550,0"></ComboBox>
+        <ComboBox Grid.Column="1" Grid.Row="14" Text="{Binding Path=Etiketa,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,550,0"></ComboBox>
+        <Button Content="Sacuvaj Lokal" Grid.Column="1" HorizontalAlignment="Left" Margin="493,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="112" Height="44" Grid.RowSpan="2"/>
+    </Grid>
+</Window>
