@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Lokali u gradu" Height="450" Width="800">
     <Grid>
-        <Button Content="Dodaj Lokal" HorizontalAlignment="Left" Margin="707,247,0,0" VerticalAlignment="Top" Width="75" Click="Dodaj_Lokal" Height="50"/>
-        <Button Content="Tip" HorizontalAlignment="Left" Margin="707,302,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.029,0.651" Click="Dodaj_Tip" Height="50"/>
-        <Button Content="Etiketa" HorizontalAlignment="Left" Margin="707,357,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.451,-0.682" Height="50" Click="Dodaj_Etiketu"/>
-        <Button Content="Prikaz tabele" HorizontalAlignment="Left" Margin="707,192,0,0" VerticalAlignment="Top" Width="75" Height="50" Click="Prikazi_Tabelu"/>
+        <Button Content="Dodaj Lokal" HorizontalAlignment="Left" Margin="707,10,0,0" VerticalAlignment="Top" Width="75" Click="Dodaj_Lokal" Height="50"/>
+        <Button Content="Dodaj Tip" HorizontalAlignment="Left" Margin="707,65,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.029,0.651" Click="Dodaj_Tip" Height="50"/>
+        <Button Content="Dodaj Etiketu" HorizontalAlignment="Left" Margin="707,120,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.451,-0.682" Height="50" Click="Dodaj_Etiketu"/>
+        <Button Content="Prikaz tabele" HorizontalAlignment="Left" Margin="707,175,0,0" VerticalAlignment="Top" Width="75" Height="50" Click="Prikazi_Tabelu" RenderTransformOrigin="0.67,-2.155"/>
 
     </Grid>
 </Window>
