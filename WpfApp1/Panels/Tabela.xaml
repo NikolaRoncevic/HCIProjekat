@@ -16,7 +16,6 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Ime:"/>
                                 <TextBlock Text="{Binding Ime}"/>
                             </StackPanel>
                         </DataTemplate>
