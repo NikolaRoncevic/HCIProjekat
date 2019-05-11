@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
-    public enum Cena { niske, srednje, visoke, izuzetnoVisoke };
-    public enum Alkohol { neSluzi,sluziDo11,sluziKasnoNocu}
+   public enum Cena { niske, srednje, visoke, izuzetnoVisoke };
+   public enum Alkohol { neSluzi,sluziDo11,sluziKasnoNocu};
    public class Lokal : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

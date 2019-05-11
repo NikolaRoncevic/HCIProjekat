@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1
 {
@@ -19,7 +20,13 @@ namespace WpfApp1
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {   
+        public static Dictionary<string,TipLokala> TipoviLokala = new Dictionary<string, TipLokala>();
+        public static Dictionary<string, Lokal> Lokali = new Dictionary<string, Lokal>();
+        public static Dictionary<string, Etiketa> Etikete = new Dictionary<string, Etiketa>();
+
+        
+
         public MainWindow()
         {
             InitializeComponent();

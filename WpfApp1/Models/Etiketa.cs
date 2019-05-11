@@ -9,6 +9,7 @@ using System.Windows.Media;
 
 namespace WpfApp1.Models
 {
+    [Serializable]
     public class Etiketa : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -22,6 +23,7 @@ namespace WpfApp1.Models
         private string _id;
         private string _opis;
         private Color _color;
+        
 
         public Etiketa(string id, string opis, Color color)
         {

@@ -11,17 +11,20 @@
         <Grid.RowDefinitions  >
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" MinHeight="160"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="320"/>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0">Jedinstvena oznaka:</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="1">naziv:</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="2">Opis:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2">Ikonica:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3">Opis:</TextBlock>
 
-        <TextBox Grid.Column="1" Grid.Row="0"  Margin="0,0,220,0">
+        <TextBox Name="tbId"  Grid.Column="1" Grid.Row="0"  Margin="0,0,220,0">
             <TextBox.Text>
                 <Binding Path="Id" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -46,7 +49,7 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <TextBox Grid.Column="1" Grid.Row="1"  Margin="0,0,220,0">
+        <TextBox Name="tbNaziv" Grid.Column="1" Grid.Row="1"  Margin="0,0,220,0">
             <TextBox.Text>
                 <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -71,7 +74,8 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <TextBox Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="0,0,220,0">
+
+        <TextBox Name="tbOpis"  Grid.Column="1" Grid.Row="3" Margin="0,0,220,165">
             <TextBox.Text>
                 <Binding Path="Opis" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -96,6 +100,7 @@
                 </ControlTemplate>
             </Validation.ErrorTemplate>
         </TextBox>
-        <Button Content="Sacuvaj Tip" Grid.Column="1" HorizontalAlignment="Left" Margin="243,233,0,-86" Grid.Row="2" VerticalAlignment="Top" Width="84" Height="38"/>
+        <Button Content="Sacuvaj Tip" Grid.Column="1" HorizontalAlignment="Left" Margin="243,207,0,0" Grid.Row="3" VerticalAlignment="Top" Width="84" Height="38" Click="saveTip"/>
+        <Button Content="Izaberite Ikonicu" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="117" Height="20" RenderTransformOrigin="0.32,0.5" Margin="0,3,0,0" Click="choseIcon"/>
     </Grid>
 </Window>

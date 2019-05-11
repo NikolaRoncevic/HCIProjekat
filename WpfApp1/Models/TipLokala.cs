@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WpfApp1.Models
 {
+    [Serializable]
     public class TipLokala : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -20,12 +22,28 @@ namespace WpfApp1.Models
         private string _id;
         private string _ime;
         private string _opis;
+        private Icon _ikonica;
 
-        public TipLokala(string id, string ime, string opis)
+        public Icon Ikonica
+        {
+            get { return _ikonica; }
+            set
+            {
+                if (value != _ikonica)
+                {
+                    _ikonica = value;
+                    OnPropertyChanged("Ikonica");
+                }
+            }
+        }
+
+
+        public TipLokala(string id, string ime, string opis,string ikonica)
         {
             Id = id;
             Ime = ime;
             Opis = opis;
+            //todo: napraviti ikonicu!!
         }
 
         public string Id
