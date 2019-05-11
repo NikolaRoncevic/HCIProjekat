@@ -10,7 +10,7 @@
         <Grid.RowDefinitions >
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="107" />
+            <RowDefinition Height="110" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -71,7 +71,7 @@
             <TextBox.Text>
                 <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
-                        <val:StringValidationRule ValidationStep="RawProposedValue"></val:StringValidationRule>
+                        <val:NoSpecialCharacters ValidationStep="RawProposedValue"></val:NoSpecialCharacters>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
@@ -132,7 +132,14 @@
             <ComboBoxItem Content="Visoke"></ComboBoxItem>
             <ComboBoxItem Content="Izuzetno visoke"></ComboBoxItem>
         </ComboBox>
-        <TextBox Grid.Column="1" Grid.Row="11" Margin="0,0,220,0" Text="{Binding Path=Kapacitet,UpdateSourceTrigger=PropertyChanged}">
+        <TextBox Grid.Column="1" Grid.Row="11" Grid.RowSpan="1" Margin="0,0,220,0">
+            <TextBox.Text>
+                <Binding Path="Kapacitet" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:StringToDoubleValidationRule ValidationStep="RawProposedValue"></val:StringToDoubleValidationRule>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
@@ -144,8 +151,8 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0"/>
-                        <TextBlock Grid.Column="1" Grid.Row="10" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                     </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>

@@ -29,6 +29,7 @@ namespace WpfApp1.Panels
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+        private string _id;
         private string _opis;
         public string Opis
         {
@@ -39,6 +40,18 @@ namespace WpfApp1.Panels
                 {
                     _opis = value;
                     OnPropertyChanged("Opis");
+                }
+            }
+        }
+        public string Id
+        {
+            get { return _id; }
+            set
+            {
+                if (value != _id)
+                {
+                    _id = value;
+                    OnPropertyChanged("Id");
                 }
             }
         }
