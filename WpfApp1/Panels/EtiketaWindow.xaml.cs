@@ -94,7 +94,7 @@ namespace WpfApp1.Panels
             }
             else
             {
-                // todo: sta raditi ako kljuc vec postoji kada dodajem tip lokala
+                // todo: sta raditi ako kljuc vec postoji kada dodajem etiketu
             }
 
 
