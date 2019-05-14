@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -39,7 +40,24 @@ namespace WpfApp1.Panels
         private double _kapacitet;
         private string _opis;
         private string _id;
-        
+        private string _ikonica;
+
+        public string Ikonica
+        {
+            get
+            {
+                return _ikonica;
+            }
+            set
+            {
+                if (value != _ikonica)
+                {
+                    _ikonica = value;
+                    OnPropertyChanged("Naziv");
+                }
+            }
+        }
+
         public string Naziv
         {
             get
@@ -103,11 +121,11 @@ namespace WpfApp1.Panels
         public LokalWindow2()
         {
             InitializeComponent();
-            foreach(TipLokala tip  in MainWindow.TipoviLokala.Values)
+            foreach (TipLokala tip in MainWindow.TipoviLokala.Values)
             {
-                cbTipLokala.Items.Add(tip.Ime);
+                cbTipLokala.Items.Add(tip.Id);
             }
-            foreach(Etiketa etiketa in MainWindow.Etikete.Values)
+            foreach (Etiketa etiketa in MainWindow.Etikete.Values)
             {
                 cbEtiketa.Items.Add(etiketa.Id);
             }
@@ -123,54 +141,42 @@ namespace WpfApp1.Panels
             string opis = tbOpis.Text;
             bool dostupnoZaHendikepe = (bool)chbDostupanZaHendikepe.IsChecked;
             bool dozvoljenoPusenje = (bool)chbDozvoljenoPusenje.IsChecked;
-            Cena kategorijaCene;
-            if (cbKategorijaCena.Text.Equals("Niske"))
-            {
-                kategorijaCene = Cena.niske;
-            }
-            else if (cbKategorijaCena.Text.Equals("Srednje"))
-            {
-                kategorijaCene = Cena.srednje;
-            }
-            else if(cbKategorijaCena.Text.Equals("Visoke"))
-            {
-                kategorijaCene = Cena.visoke;
-
-            }
-            else
-            {
-                kategorijaCene = Cena.izuzetnoVisoke;
-            }
-            Alkohol sluzenjeAlkohola;
-            if(cbSluzenjealkohola.Text.Equals("Ne sluzi"))
-            {
-                sluzenjeAlkohola = Alkohol.neSluzi;
-            }
-            else if(cbSluzenjealkohola.Text.Equals("Sluzi do 23"))
-            {
-                sluzenjeAlkohola = Alkohol.sluziDo11;
-            }
-            else
-            {
-                sluzenjeAlkohola = Alkohol.sluziKasnoNocu;
-            }
+            string kategorijaCene = cbKategorijaCena.Text;
+            string sluzenjeAlkohola = cbSluzenjealkohola.Text;
             int kapacitet = Int32.Parse(tbKapacitet.Text);
             DateTime datumOtvaranja = dpDatumOtvaranja.DisplayDate;
             bool rezervacije = (bool)ChbRezervacije.IsChecked;
             Etiketa etiketa = MainWindow.Etikete[cbEtiketa.Text];
             TipLokala lokalTip = MainWindow.TipoviLokala[cbTipLokala.Text];
-            Lokal lokal = new Lokal(id, ime, opis, dostupnoZaHendikepe, dozvoljenoPusenje, kategorijaCene, sluzenjeAlkohola, kapacitet, datumOtvaranja, rezervacije, etiketa, lokalTip);
-            if (!MainWindow.Etikete.ContainsKey(lokal.Id))
+            Lokal lokal = new Lokal(id, ime, opis, dostupnoZaHendikepe, dozvoljenoPusenje, kategorijaCene, sluzenjeAlkohola, kapacitet, datumOtvaranja, rezervacije, etiketa, lokalTip,Ikonica);
+            if (!MainWindow.Lokali.ContainsKey(lokal.Id))
             {
                 MainWindow.Lokali.Add(lokal.Id, lokal);
                 IFormatter formatter = new BinaryFormatter();
-                Stream stream = new FileStream(@"C:\Users\Korisnik\Desktop\Etikete.txt", FileMode.Create, FileAccess.Write);
+                Stream stream = new FileStream(@"C:\Users\Korisnik\Desktop\Lokali.txt", FileMode.Create, FileAccess.Write);
                 formatter.Serialize(stream, MainWindow.Lokali);
                 stream.Close();
             }
             else
             {
                 // todo: sta raditi ako kljuc vec postoji kada dodajem etiketu
+            }
+        }
+
+        private void BtnDodajIkonicu_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    Ikonica = ofd.FileName;
+
+                }
+                catch (SecurityException ex)
+                {
+                    System.Windows.MessageBox.Show("Ne moze");
+                }
             }
         }
     }

@@ -57,6 +57,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Panels\IzmenaBrisanjeTipaLokala.xaml.cs">
+      <DependentUpon>IzmenaBrisanjeTipaLokala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\IzmenaIBrisanjeEtikete.xaml.cs">
+      <DependentUpon>IzmenaIBrisanjeEtikete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\IzmenaIBrsanjeLokala.xaml.cs">
+      <DependentUpon>IzmenaIBrsanjeLokala.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Panels\LokalWindow.xaml.cs">
       <DependentUpon>LokalWindow.xaml</DependentUpon>
     </Compile>
@@ -74,6 +83,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Panels\EtiketaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\IzmenaBrisanjeTipaLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\IzmenaIBrisanjeEtikete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Panels\IzmenaIBrsanjeLokala.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -77,6 +77,8 @@
             <TextBlock Grid.Column="1" Grid.Row="7" Text="{Binding Path=Kapacitet}" Grid.ColumnSpan="2"></TextBlock>
             <TextBlock Grid.Column="1" Grid.Row="8" Text="{Binding Path=DatumOtvaranja}" Grid.ColumnSpan="2"></TextBlock>
             <CheckBox Grid.Column="1" Grid.Row="9" IsChecked="{Binding Path=Rezervacije}" Grid.ColumnSpan="2" IsEnabled="false"/>
+            <Button Content="Obrisi" Grid.Column="2" HorizontalAlignment="Left" Margin="344,67,-404,-48" Grid.Row="9" VerticalAlignment="Top" Width="75"/>
+            <Button Content="Izmeni" Grid.Column="2" HorizontalAlignment="Left" Margin="238,67,-293,-8" Grid.Row="9" VerticalAlignment="Top" Width="75" Height="20"/>
         </Grid>
     </Grid>
 </Window>

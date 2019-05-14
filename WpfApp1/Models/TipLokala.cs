@@ -22,9 +22,9 @@ namespace WpfApp1.Models
         private string _id;
         private string _ime;
         private string _opis;
-        private Icon _ikonica;
+        private string _ikonica;
 
-        public Icon Ikonica
+        public string Ikonica
         {
             get { return _ikonica; }
             set

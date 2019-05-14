@@ -11,6 +11,9 @@
         <Button Content="Dodaj Tip" HorizontalAlignment="Left" Margin="707,65,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.029,0.651" Click="Dodaj_Tip" Height="50"/>
         <Button Content="Dodaj Etiketu" HorizontalAlignment="Left" Margin="707,120,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.451,-0.682" Height="50" Click="Dodaj_Etiketu"/>
         <Button Content="Prikaz tabele" HorizontalAlignment="Left" Margin="707,175,0,0" VerticalAlignment="Top" Width="75" Height="50" Click="Prikazi_Tabelu" RenderTransformOrigin="0.67,-2.155"/>
+        <Button Content="Rad sa etiketom" HorizontalAlignment="Left" Margin="632,230,0,0" VerticalAlignment="Top" Width="150" Height="50" Click="Button_Click"/>
+        <Button Content="Rad sa tipomLokala" HorizontalAlignment="Left" Margin="632,285,0,0" VerticalAlignment="Top" Width="150" Height="54" Click="Button_Click_1"/>
+        <Button Content="Rad sa Lokalima" HorizontalAlignment="Left" Margin="632,344,0,0" VerticalAlignment="Top" Width="150" Height="43" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

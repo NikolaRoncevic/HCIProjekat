@@ -115,11 +115,47 @@ namespace WpfApp1.Panels
 
         private void saveTip(object sender, RoutedEventArgs e)
         {
+            int flag = 1;
+            if (String.IsNullOrEmpty(tbId.Text))
+            {
+                tbId.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
+                flag = 0;
+
+
+
+            }
             
+            if (String.IsNullOrEmpty(tbOpis.Text))
+            {
+                tbOpis.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
+                flag = 0;
+
+
+
+            }
+
+            if (String.IsNullOrEmpty(tbNaziv.Text))
+            {
+                tbNaziv.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
+                flag = 0;
+
+
+
+            }
+            string ikonica;
+            if (String.IsNullOrEmpty(Ikonica))
+            {
+                // todo: default ikonica za tipLokala
+                ikonica = "asd";
+            }
+            else
+            {
+                ikonica = Ikonica;
+            }
             string id = tbId.Text;
             string opis = tbOpis.Text;
             string ime = tbNaziv.Text;
-            string ikonica = Ikonica;
+            
             TipLokala tipLokala = new TipLokala(id, ime, opis,ikonica);
             if (!MainWindow.TipoviLokala.ContainsKey(tipLokala.Id))
             {

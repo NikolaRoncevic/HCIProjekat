@@ -35,7 +35,7 @@ namespace WpfApp1.Panels
         }
         private string _id;
         private string _opis;
-        public Color color;
+        public int a = 0, r = 0, g = 0, b = 0;
         public string Opis
         {
             get { return _opis; }
@@ -71,20 +71,37 @@ namespace WpfApp1.Panels
             ColorDialog dig = new ColorDialog();
             dig.ShowDialog();
 
-            if(dig.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (dig.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 tbColor.Background = new SolidColorBrush(Color.FromArgb(dig.Color.A, dig.Color.R, dig.Color.G, dig.Color.B));
-                color = Color.FromArgb(dig.Color.A, dig.Color.R, dig.Color.G, dig.Color.B);
+                this.a = dig.Color.A;
+                this.r = dig.Color.R;
+                this.g = dig.Color.G;
+                this.b = dig.Color.B;
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            int flag = 1;
+            if (String.IsNullOrEmpty(tbId.Text))
+            {
+                tbId.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
+                flag = 0;
+
+
+
+            }
+            if (String.IsNullOrEmpty(tbOpis.Text))
+            {
+                tbOpis.Background = new SolidColorBrush(Color.FromArgb(100, 255, 0, 0));
+
+
+            }
             string id = tbId.Text;
             string opis = tbOpis.Text;
-            Color boja = color;
-            Etiketa etiketa = new Etiketa(id, opis, color);
-            if (!MainWindow.Etikete.ContainsKey(etiketa.Id))
+            Etiketa etiketa = new Etiketa(id, opis, a, r, g, b);
+            if (!MainWindow.Etikete.ContainsKey(etiketa.Id) && flag == 1)
             {
                 MainWindow.Etikete.Add(etiketa.Id, etiketa);
                 IFormatter formatter = new BinaryFormatter();
@@ -94,7 +111,7 @@ namespace WpfApp1.Panels
             }
             else
             {
-                // todo: sta raditi ako kljuc vec postoji kada dodajem etiketu
+                // todo: sta raditi ako kljuc vec postoji kada dodajem etiketu ili ako je prazno
             }
 
 

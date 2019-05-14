@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\App.xaml
-5-1418536671
+8-811958813
 
-13898266098
+16-587746229
 151984215308
-MainWindow.xaml;Panels\EtiketaWindow.xaml;Panels\LokalWindow.xaml;Panels\Tabela.xaml;Panels\TipWindow.xaml;
+MainWindow.xaml;Panels\EtiketaWindow.xaml;Panels\IzmenaBrisanjeTipaLokala.xaml;Panels\IzmenaIBrisanjeEtikete.xaml;Panels\IzmenaIBrsanjeLokala.xaml;Panels\LokalWindow.xaml;Panels\Tabela.xaml;Panels\TipWindow.xaml;
 
 False
 

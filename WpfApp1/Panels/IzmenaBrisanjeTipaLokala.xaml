@@ -1,0 +1,84 @@
+﻿<Window x:Class="WpfApp1.Panels.IzmenaBrisanjeTipaLokala"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Panels"
+        xmlns:val="clr-namespace:WpfApp1.Validation"
+        mc:Ignorable="d"
+        Title="IzmenaBrisanjeTipaLokala" Height="400" Width="500">
+    <Grid Margin="25,25,25,25">
+        <Grid.RowDefinitions  >
+            <RowDefinition Height="Auto" MinHeight="22" />
+            <RowDefinition Height="Auto" MinHeight="18" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="320"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0">Jedinstvena oznaka:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1">Naziv:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2">Ikonica:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3">Opis:</TextBlock>
+
+
+        <TextBox Name="tbNaziv" Grid.Column="1" Grid.Row="1"  Margin="0,0,220,0">
+            <TextBox.Text>
+                <Binding Path="Naziv" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:NoSpecialCharacters ValidationStep="RawProposedValue"></val:NoSpecialCharacters>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
+        <TextBox Name="tbOpis"  Grid.Column="1" Grid.Row="3" Margin="0,0,220,165">
+            <TextBox.Text>
+                <Binding Path="Opis" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:NoSpecialCharacters ValidationStep="RawProposedValue"></val:NoSpecialCharacters>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Button Content="Sacuvaj izmene" Grid.Column="1" HorizontalAlignment="Left" Margin="243,207,0,0" Grid.Row="3" VerticalAlignment="Top" Width="84" Height="38" Click="saveTip"/>
+        <Button Content="Izaberite Ikonicu" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="117" Height="20" RenderTransformOrigin="0.32,0.5" Margin="0,3,0,0" Click="choseIcon"/>
+        <ComboBox Name="cbId" HorizontalAlignment="Left" Margin="102,0,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Height="22" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Button Content="Obrisi" Grid.Column="1" HorizontalAlignment="Left" Margin="163,207,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Height="38" Click="Obrisi"/>
+    </Grid>
+</Window>

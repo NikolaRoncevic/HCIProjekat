@@ -22,3 +22,9 @@ C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
 C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\Panels\LokalWindow.g.cs
 C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\Panels\LokalWindow.baml
+C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\Panels\IzmenaIBrisanjeEtikete.g.cs
+C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\Panels\IzmenaIBrisanjeEtikete.baml
+C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\Panels\IzmenaBrisanjeTipaLokala.g.cs
+C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\Panels\IzmenaBrisanjeTipaLokala.baml
+C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\Panels\IzmenaIBrsanjeLokala.g.cs
+C:\Users\Korisnik\Desktop\HCI\WpfApp1\WpfApp1\obj\Debug\Panels\IzmenaIBrsanjeLokala.baml

@@ -22,14 +22,66 @@ namespace WpfApp1.Models
         }
         private string _id;
         private string _opis;
-        private Color _color;
-        
+        private int _a, _r, _g, _b;
 
-        public Etiketa(string id, string opis, Color color)
+        public int A
+        {
+            get { return _a; }
+            set
+            {
+                if (value != _a)
+                {
+                    _a = value;
+                    OnPropertyChanged("A");
+                }
+            }
+        }
+        public int R
+        {
+            get { return _r; }
+            set
+            {
+                if (value != _r)
+                {
+                    _r = value;
+                    OnPropertyChanged("R");
+                }
+            }
+        }
+        public int G
+        {
+            get { return _g; }
+            set
+            {
+                if (value != _g)
+                {
+                    _g = value;
+                    OnPropertyChanged("G");
+                }
+            }
+        }
+        public int B
+        {
+            get { return _b; }
+            set
+            {
+                if (value != _b)
+                {
+                    _b = value;
+                    OnPropertyChanged("B");
+                }
+            }
+        }
+
+
+        public Etiketa(string id, string opis, int a, int r, int g, int b)
         {
             Id = id;
             Opis = opis;
-            Color = color;
+            A = a;
+            R = r;
+            G = g;
+            B = b;
         }
 
         public string Id
@@ -45,7 +97,7 @@ namespace WpfApp1.Models
             }
         }
 
-        
+
 
         public string Opis
         {
@@ -59,24 +111,5 @@ namespace WpfApp1.Models
                 }
             }
         }
-
-        
-
-        public Color Color
-        {
-            get { return _color; }
-            set
-            {
-                if (value != _color)
-                {
-                    _color = value;
-                    OnPropertyChanged("Color");
-                }
-            }
-        }
-
-
-
-
     }
 }

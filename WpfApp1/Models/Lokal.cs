@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WpfApp1.Models
-{
-   public enum Cena { niske, srednje, visoke, izuzetnoVisoke };
-   public enum Alkohol { neSluzi,sluziDo11,sluziKasnoNocu};
+{  [Serializable]
    public class Lokal : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,13 +23,14 @@ namespace WpfApp1.Models
         private string _opis;
         private bool _dostupnoZaHendikepe;
         private bool _dozvoljenoPusenje;
-        private Cena _kategorijaCena;
-        private Alkohol _sluzenjeAlkohola;
+        private string _kategorijaCena;
+        private string _sluzenjeAlkohola;
         private int _kapacitet;
         private DateTime _datumOtvaranja;
         private bool _rezervacije;
         private Etiketa _etiketa;
         private TipLokala _lokalTip;
+        private string _ikonica;
 
         
 
@@ -41,13 +41,14 @@ namespace WpfApp1.Models
             string opis, 
             bool dostupnoZaHendikepe, 
             bool dozvoljenoPusenje, 
-            Cena kategorijaCena, 
-            Alkohol sluzenjeAlkohola, 
+            string kategorijaCena, 
+            string sluzenjeAlkohola, 
             int kapacitet, 
             DateTime datumOtvaranja, 
             bool rezervacije,
             Etiketa etiketa,
-            TipLokala lokalTip
+            TipLokala lokalTip,
+            string ikonica
             )
         { 
             Id = id;
@@ -62,6 +63,7 @@ namespace WpfApp1.Models
             Rezervacije = rezervacije;
             Etiketa = etiketa;
             LokalaTip = lokalTip;
+            // todo: napraviti ikonicu u Lokal
         }
 
         public string Id
@@ -73,6 +75,18 @@ namespace WpfApp1.Models
                 {
                     _id = value;
                     OnPropertyChanged("Id");
+                }
+            }
+        }
+        public string Ikonica
+        {
+            get { return _ikonica; }
+            set
+            {
+                if (value != _ikonica)
+                {
+                    _ikonica = value;
+                    OnPropertyChanged("Ikonica");
                 }
             }
         }
@@ -153,7 +167,7 @@ namespace WpfApp1.Models
             }
         }
 
-        public Cena KategorijaCena
+        public string KategorijaCena
         {
             get { return _kategorijaCena; }
             set
@@ -166,7 +180,7 @@ namespace WpfApp1.Models
             }
         }
 
-        public Alkohol SluzenjeAlkohola
+        public string SluzenjeAlkohola
         {
             get { return _sluzenjeAlkohola; }
             set
